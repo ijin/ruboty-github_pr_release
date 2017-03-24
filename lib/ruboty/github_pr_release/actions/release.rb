@@ -36,7 +36,7 @@ module Ruboty
           Ruboty.logger.debug("base: #{base}")
           Ruboty.logger.debug("from_branch (head): #{from_branch}")
           Ruboty.logger.debug("title: #{title}")
-          current_pr = client.pull_requests(repository, head: from_branch, base: base)
+          current_pr = current_pull_request
           raise PrExistsError, "Pull Request already exists" unless current_pr.empty? 
           client.create_pull_request(repository, base, from_branch, title, body)
         end
@@ -45,8 +45,11 @@ module Ruboty
           # TODO: title with date (jst active support)
           message[:title] || "release to #{base}"
         end
-      end
 
+        def current_pull_request
+          client.pull_requests(repository, head: from_branch, base: base)
+        end
+      end
       class PrExistsError < StandardError
       end
     end

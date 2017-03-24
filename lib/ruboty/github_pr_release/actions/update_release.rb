@@ -22,7 +22,7 @@ module Ruboty
           Ruboty.logger.debug("base: #{base}")
           Ruboty.logger.debug("from_branch (head): #{from_branch}")
           Ruboty.logger.debug("title: #{title}")
-          current_pr = client.pull_requests(repository, head: from_branch, base: base)
+          current_pr = current_pull_request
           raise NoPrExistsError, "Pull Request does NOT exist" if current_pr.empty? 
           b = body
           message_diff('title', current_pr.first.title, title)
