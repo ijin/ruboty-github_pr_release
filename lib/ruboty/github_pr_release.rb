@@ -1,3 +1,4 @@
+require "ruboty/github"
 require "ruboty/github_pr_release/version"
 require "ruboty/handlers/github_pr_release"
 
