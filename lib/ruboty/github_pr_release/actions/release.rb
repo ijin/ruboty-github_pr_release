@@ -42,13 +42,13 @@ module Ruboty
         end
 
         def title
+          # TODO: title with date (jst active support)
           message[:title] || "release to #{base}"
         end
       end
 
       class PrExistsError < StandardError
       end
-
     end
   end
 end

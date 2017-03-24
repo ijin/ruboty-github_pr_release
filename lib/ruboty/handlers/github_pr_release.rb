@@ -10,10 +10,19 @@ module Ruboty
         description: "Creates a 'release pull request'"
       )
 
+      on(
+        /update release from (?<from>.+) to (?<to>.+:\S+)( as "(?<title>\w+)")?\z/,
+        name: 'update_release',
+        description: "Updates a 'release pull request'"
+      )
+
       def release(message)
         Ruboty::GithubPrRelease::Actions::Release.new(message).call
       end
 
+      def update_release(message)
+        Ruboty::GithubPrRelease::Actions::UpdateRelease.new(message).call
+      end
     end
   end
 end
