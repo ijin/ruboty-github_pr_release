@@ -2,7 +2,6 @@ require "ruboty/github_pr_release/actions/release"
 
 module Ruboty
   module Handlers
-    # Creates a 'release pull request'
     class GithubPrRelease < Base
       on(
         /release from (?<from>.+) to (?<to>.+:\S+)( as "(?<title>\w+)")?\z/,
@@ -16,12 +15,22 @@ module Ruboty
         description: "Updates a 'release pull request'"
       )
 
+      on(
+        /deploy release from (?<from>.+) to (?<to>.+)\z/,
+        name: 'deploy_release',
+        description: "Merges a 'release pull request' for deployment"
+      )
+
       def release(message)
         Ruboty::GithubPrRelease::Actions::Release.new(message).call
       end
 
       def update_release(message)
         Ruboty::GithubPrRelease::Actions::UpdateRelease.new(message).call
+      end
+
+      def deploy_release(message)
+        Ruboty::GithubPrRelease::Actions::DeployRelease.new(message).call
       end
     end
   end

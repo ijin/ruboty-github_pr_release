@@ -50,6 +50,7 @@ module Ruboty
           client.pull_requests(repository, head: from_branch, base: base)
         end
       end
+
       class PrExistsError < StandardError
       end
     end
