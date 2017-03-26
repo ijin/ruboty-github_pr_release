@@ -4,13 +4,13 @@ module Ruboty
   module Handlers
     class GithubPrRelease < Base
       on(
-        /release from (?<from>.+) to (?<to>.+:\S+)( as "(?<title>\w+)")?\z/,
+        /release from (?<from>.+) to (?<to>.+:\S+)( as "(?<title>.+)")?\z/,
         name: 'release',
         description: "Creates a 'release pull request'"
       )
 
       on(
-        /update release from (?<from>.+) to (?<to>.+:\S+)( as "(?<title>\w+)")?\z/,
+        /update release from (?<from>.+) to (?<to>.+:\S+)( as "(?<title>.+)")?\z/,
         name: 'update_release',
         description: "Updates a 'release pull request'"
       )
