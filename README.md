@@ -1,28 +1,25 @@
 # Ruboty::GithubPrRelease
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruboty/github_pr_release`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Manages the creation and merging of  `release pull requests` via Ruboty.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
+# Gemfile
 gem 'ruboty-github_pr_release'
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ruboty-github_pr_release
-
 ## Usage
 
-TODO: Write usage instructions here
+@ruboty release from "from" to "to"[as "title"] - Creates a `release pull request`
+@ruboty update release from "from" to "to"[as "title"] - Updates a `release pull request`
+@ruboty deploy release from "from" to "to" - Merges a `release pull request` for deployment
+
+## Notes
+
+Be careful not to `revert` a merge. Otherwise, further pull requests cannot be made.
 
 ## Development
 

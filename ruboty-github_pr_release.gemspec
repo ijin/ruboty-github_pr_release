@@ -9,8 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Micahel H. Oshita"]
   spec.email         = ["ijinpublic+github@gmail.com"]
 
-  spec.summary       = %q{Creates a 'release pull request'}
+  spec.summary       = %q{Manages a 'release pull request'}
+  spec.description   = spec.summary
   spec.homepage      = "https://github.com/ijin/ruboty-github_pr_release"
+  spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
