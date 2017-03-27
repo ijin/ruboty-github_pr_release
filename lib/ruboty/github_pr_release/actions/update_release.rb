@@ -34,7 +34,7 @@ module Ruboty
           diff = Diffy::Diff.new(old, new)
           if
             Ruboty.logger.debug("updating #{what}:\n#{diff.to_s(:color)}\n")
-            message.reply("updating #{what}:\n#{diff}\n")
+            message.reply("updating #{what}:\n#{diff.to_s.gsub(/\\ No newline at end of file\n/, '')}\n") unless diff.to_s.empty?
           end
         end
 
