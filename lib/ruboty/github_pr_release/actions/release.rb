@@ -11,8 +11,10 @@ module Ruboty
           Ruboty.logger.debug("Found merged pull requests: #{merged_pr.size}")
           body = "Releasing these pull requests:\n\n"
           merged_pr.collect do |pr|
-            num, title = /Merge pull request (?<merge_num>#\d+) from.*\n\n(?<merge_title>.*)/.match(pr.commit.message).captures
-            body +=  "- [ ] #{num} #{title} @#{pr.author.login}\n"
+            if match = /Merge pull request (?<merge_num>#\d+) from.*\n\n(?<merge_title>.*)/.match(pr.commit.message)
+              num, title = match.captures
+              body +=  "- [ ] #{num} #{title} @#{pr.author.login}\n"
+            end
           end
           Ruboty.logger.debug("body: \n#{body}")
           # TODO: put slack login id if exists
