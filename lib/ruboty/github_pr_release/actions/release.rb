@@ -27,6 +27,8 @@ module Ruboty
           message.reply("Failed in authentication (401)")
         rescue Octokit::NotFound
           message.reply("Could not find that repository")
+        rescue Octokit::UnprocessableEntity
+          message.reply("No commits between #{from_branch} and #{base}")
         rescue => exception
           message.reply("Failed by #{exception.class} #{exception}")
         rescue PrExistsError => e
@@ -39,7 +41,7 @@ module Ruboty
           Ruboty.logger.debug("from_branch (head): #{from_branch}")
           Ruboty.logger.debug("title: #{title}")
           current_pr = current_pull_request
-          raise PrExistsError, "Pull Request already exists" unless current_pr.empty? 
+          raise PrExistsError, "Pull Request already exists" unless current_pr.empty?
           client.create_pull_request(repository, base, from_branch, title, body)
         end
 
