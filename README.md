@@ -13,9 +13,9 @@ gem 'ruboty-github_pr_release'
 
 ## Usage
 
-@ruboty release from "from" to "to"[as "title"] - Creates a `release pull request`
-@ruboty update release from "from" to "to"[as "title"] - Updates a `release pull request`
-@ruboty deploy release from "from" to "to" - Merges a `release pull request` for deployment
+- @ruboty release from "from" to "to"[as "title"] - Creates a `release pull request`
+- @ruboty update release from "from" to "to"[as "title"] - Updates a `release pull request`
+- @ruboty deploy release from "from" to "to" - Merges a `release pull request` for deployment
 
 ## Notes
 
