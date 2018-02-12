@@ -47,7 +47,7 @@ module Ruboty
 
         def title
           # TODO: title with date (jst active support)
-          message[:title] || "release to #{base}"
+          message[:title] || "Release to #{base}"
         end
 
         def current_pull_request
