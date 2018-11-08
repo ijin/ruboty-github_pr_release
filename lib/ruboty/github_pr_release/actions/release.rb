@@ -29,6 +29,8 @@ module Ruboty
           message.reply("Could not find that repository")
         rescue Octokit::UnprocessableEntity
           message.reply("No commits between #{from_branch} and #{base}")
+        rescue PrExistsError
+          message.reply("This pull request is already open")
         rescue => exception
           message.reply("Failed by #{exception.class} #{exception}")
         rescue PrExistsError => e
